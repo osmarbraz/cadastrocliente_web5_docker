@@ -1,6 +1,6 @@
-# Sistema de Cadastro de Clientes WEB com Docker 
+# Sistema de Cadastro de Clientes WEB com Docker Compose e MySQL
 
-Sistema de Cadastro de Cliente WEB com Docker e Banco de Dados em 3 camadas utilizando o padrão Abstract Factory.
+Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 3 camadas utilizando o padrão Abstract Factory.
 
 ## Sobre o projeto
  - O projeto foi desenvolvido no NetBeans deve ser chamado cadastrocliente_web5_docker.
@@ -10,6 +10,7 @@ Sistema de Cadastro de Cliente WEB com Docker e Banco de Dados em 3 camadas util
  - A aplicação é empacotada no formato **WAR (Web Application Archive)**.
  - Utiliza o **Docker** para criar e executar os containers da aplicação e do banco de dados.
  - Utiliza o **Docker Compose** para definir e gerenciar os serviços da aplicação. 
+ - Utiliza o **MySQL 8.4** como banco de dados da aplicação. 
  - O projeto é um CRUD para os dados de cliente(clienteId, Nome, CPF).
  - As classes do projeto está organizado nos pacotes visão, controle, modelo, dao além de um pacote util.
  - Utiliza o padrão abstract factory para abstrair 3 formas de armazenamento:
