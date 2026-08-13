@@ -3,14 +3,13 @@
 Sistema de Cadastro de Cliente WEB com Docker e Banco de Dados em 3 camadas utilizando o padrão Abstract Factory.
 
 ## Sobre o projeto
-
- - O projeto foi desenvolvido no NetBeans deve ser chamado cadastrocliente_web5_docker.<br>
- - Utiliza o **Java 8**.<br>
- - Utiliza o **Apache Tomcat 9** como servidor de aplicações Web.<br>
- - Utiliza o **Apache Maven** para automatizar o processo de construção da aplicação.<br>
- - A aplicação é empacotada no formato **WAR (Web Application Archive)**.<br>
- - Utiliza o **Docker** para criar e executar os containers da aplicação e do banco de dados.<br>
- - Utiliza o **Docker Compose** para definir e gerenciar os serviços da aplicação.<br>
+- O projeto foi desenvolvido no NetBeans deve ser chamado cadastrocliente_web5_docker.<br>
+- Utiliza o **Java 8**.<br>
+- Utiliza o **Apache Tomcat 9** como servidor de aplicações Web.<br>
+- Utiliza o **Apache Maven** para automatizar o processo de construção da aplicação.<br>
+- A aplicação é empacotada no formato **WAR (Web Application Archive)**.<br>
+- Utiliza o **Docker** para criar e executar os containers da aplicação e do banco de dados.<br>
+- Utiliza o **Docker Compose** para definir e gerenciar os serviços da aplicação.<br>
 
  - O projeto é um CRUD para os dados de cliente(clienteId, Nome, CPF).
  - As classes do projeto está organizado nos pacotes visão, controle, modelo, dao além de um pacote util.<br>
