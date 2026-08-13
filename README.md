@@ -29,10 +29,10 @@ Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 
 ### Para criar os conteiner e os serviços
  - docker compose up --build
 
-### Para os serviços, rode o comando
+### Parar os serviços
  - docker compose down -v
 
-## Abra o navegador em:
+### Abra o navegador em:
  - http://localhost:8080/
 
 ### Remover as imagens
