@@ -1,0 +1,40 @@
+# Sistema de Cadastro de Clientes WEB com Docker 
+
+Sistema de Cadastro de Cliente WEB com Docker e Banco de Dados em 3 camadas utilizando o padrão Abstract Factory.
+
+## Sobre o projeto
+
+ - O projeto foi desenvolvido no NetBeans deve ser chamado cadastrocliente_web5_docker.<br>
+ - Utiliza o **Java 8**.<br>
+ - Utiliza o **Apache Tomcat 9** como servidor de aplicações Web.<br>
+ - Utiliza o **Apache Maven** para automatizar o processo de construção da aplicação.<br>
+ - A aplicação é empacotada no formato **WAR (Web Application Archive)**.<br>
+ - Utiliza o **Docker** para criar e executar os containers da aplicação e do banco de dados.<br>
+ - Utiliza o **Docker Compose** para definir e gerenciar os serviços da aplicação.<br>
+
+ - O projeto é um CRUD para os dados de cliente(clienteId, Nome, CPF).
+ - As classes do projeto está organizado nos pacotes visão, controle, modelo, dao além de um pacote util.<br>
+ - Utiliza o padrão abstract factory para abstrair 3 formas de armazenamento:
+	- 1 - Banco de Dados(MySQL)
+	- 2 - HashMap
+	- 3 - Arquivo Binário
+ - Toda iteração com banco de dados é tratada diretamente pelo DAO(Data Access Object).<br>
+ - A aplicação esta configurada para utilizar inicialmente memória principal(Hashmap) para armazenamento.
+ - Se desejar utilizar outra fonte de dados, edite o arquivo src\dao\Factory.java alterando a FABRICA para outro valor.
+ - Os dados de configuração (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/DadosBanco.java.<br>
+ - A especificação da fábrica a ser utilizada é feita na interface Factory.java. 
+
+## Docker
+ - Utilizer o terminal do powershel em modo administrador.
+
+### Para criar os conteiner e os serviços
+ - docker compose up --build
+
+### Para os serviços, rode o comando
+ - docker compose down -v
+
+## Abra o navegador em:
+ - http://localhost:8080/
+
+### Remover as imagens
+ - docker compose --rmi all
