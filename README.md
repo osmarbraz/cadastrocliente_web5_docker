@@ -24,7 +24,7 @@ Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 
  - A especificação da fábrica a ser utilizada é feita na interface Factory.java. 
 
 ## Docker
- - Utilizer o terminal do powershel em modo administrador.
+ - Utilizer o terminal do Powershel em modo administrador.
 
 ### Para criar os conteiner e os serviços
  - docker compose up --build
@@ -36,4 +36,4 @@ Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 
  - http://localhost:8080/
 
 ### Remover as imagens
- - docker compose --rmi all
+ - docker compose down --rmi all
