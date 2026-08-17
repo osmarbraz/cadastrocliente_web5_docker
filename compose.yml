@@ -146,10 +146,28 @@ services:
   app:
 
     # Imagem Docker utilizada para executar a aplicação.
-    #
-    # Tomcat 9.0 com JDK 8 é utilizado como servidor de
-    # aplicações Java Web.
-    image: tomcat:9.0-jdk8
+    image: cadastrocliente_web5_docker
+        
+    # Define as configurações necessárias para construir a imagem
+    # Docker da aplicação.
+    build:
+
+      # Define a pasta que será utilizada como contexto durante
+      # a construção da imagem.
+      #
+      # O ponto "." representa a pasta atual, onde está localizado
+      # o arquivo compose.yml.
+      #
+      # Arquivos existentes dentro dessa pasta poderão ser
+      # utilizados pelo Dockerfile durante o processo de construção.
+      context: .
+
+      # Define o nome do arquivo Dockerfile que será utilizado
+      # para construir a imagem da aplicação.
+      #
+      # Neste caso, será utilizado o arquivo "Dockerfile",
+      # localizado na pasta definida pelo "context".
+      dockerfile: Dockerfile
 
     # Nome do container que executará a aplicação.
     container_name: cadastrocliente_web5_docker
@@ -157,24 +175,7 @@ services:
     # Reinicia automaticamente o container caso ele seja
     # encerrado inesperadamente.
     restart: unless-stopped
-
-    # Define os volumes utilizados pela aplicação.
-    volumes:
-
-      # Mapeia o arquivo WAR gerado pelo Maven no computador
-      # para o diretório de aplicações do Tomcat dentro
-      # do container.
-      #
-      # O arquivo WAR local:
-      # ./target/cadastrocliente_web5_docker-0.0.1.war
-      #
-      # será disponibilizado no container como:
-      # /usr/local/tomcat/webapps/ROOT.war
-      #
-      # O nome ROOT.war faz com que a aplicação seja
-      # disponibilizada diretamente na raiz do Tomcat.
-      - ./target/cadastrocliente_web5_docker-0.0.1.war:/usr/local/tomcat/webapps/ROOT.war
-
+   
     # Mapeamento das portas entre o computador e o container.
     ports:
 
