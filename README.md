@@ -70,3 +70,7 @@ create table cliente (clienteid integer,
 - pom.xml - Arquivo de configuração da ferramenta de automação Maven.
 - Dockerfile - Arquivo de configuração do Docker.
 - compose.yml - Arquivo de configuração da composição do Docker.
+
+## Arquitetura Sistema
+
+![Arquitetura](arquitetura.png)
