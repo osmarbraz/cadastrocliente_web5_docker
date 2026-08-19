@@ -25,7 +25,7 @@ public class MYSQLDAOFactory extends DAOFactory {
     private String jdbcURL;
 
     public MYSQLDAOFactory() {
-         //Define do driver e a url de conexão
+        //Define do driver e a url de conexão
         setDriverClass(DadosBanco.DRIVER);
     }
 
@@ -45,8 +45,8 @@ public class MYSQLDAOFactory extends DAOFactory {
         this.jdbcURL = jdbcURL;
     }
 
-     /**
-     * Retorna uma conexão aberta para as subclasses da fábrica para MySQL.
+    /**
+     * Retorna uma conexão aberta para o MySQL com o esquema(database).
      *
      * @return Connection Um objeto com a conexão aberta com o MySQL e database.
      */
@@ -56,7 +56,7 @@ public class MYSQLDAOFactory extends DAOFactory {
         Connection con = null;
         try {
             Class.forName(getDriverClass());
-            con = DriverManager.getConnection(getJdbcURL(), DadosBanco.USUARIO, DadosBanco.SENHA);            
+            con = DriverManager.getConnection(getJdbcURL(), DadosBanco.USUARIO, DadosBanco.SENHA);
         } catch (ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, "Classe não encontrada! {0}", e.toString());
         } catch (SQLException e) {
@@ -64,11 +64,12 @@ public class MYSQLDAOFactory extends DAOFactory {
         }
         return con;
     }
-    
+
     /**
-     * Retorna uma conexão aberta para as subclasses da fábrica para MySQL.
+     * Retorna uma conexão aberta para o MySQL sem o esquema(database).
      *
-     * @return Connection Um objeto com a conexão aberta somente com o MySQL
+     * @return Connection Um objeto com a conexão aberta com o MySQL e sem o
+     * database.
      */
     protected Connection getConnectionDB() {
         setJdbcURL("jdbc:mysql://" + DadosBanco.SERVIDOR + ":3306/");
@@ -76,7 +77,7 @@ public class MYSQLDAOFactory extends DAOFactory {
         Connection con = null;
         try {
             Class.forName(getDriverClass());
-            con = DriverManager.getConnection(getJdbcURL(), DadosBanco.USUARIO, DadosBanco.SENHA);            
+            con = DriverManager.getConnection(getJdbcURL(), DadosBanco.USUARIO, DadosBanco.SENHA);
         } catch (ClassNotFoundException e) {
             LOGGER.log(Level.SEVERE, "Classe não encontrada db! {0}", e.toString());
         } catch (SQLException e) {

@@ -56,7 +56,7 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
     public boolean inserir(Object obj) {
         boolean res = false;
         if (obj != null) {
-            Cliente cliente = (Cliente) obj;            
+            Cliente cliente = (Cliente) obj;
             StringBuilder sql = new StringBuilder();
             try {
                 try ( Connection con = getConnection();  Statement stmt = con.createStatement()) {
@@ -70,7 +70,7 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
                 return res;
             } catch (SQLException e) {
                 LOGGER.log(Level.SEVERE, "Erro no inserir:{0}", e.toString());
-            }            
+            }
         }
         return res;
     }
@@ -79,7 +79,7 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
     public int alterar(Object obj) {
         int res = 0;
         if (obj != null) {
-            Cliente cliente = (Cliente) obj;            
+            Cliente cliente = (Cliente) obj;
             StringBuilder sql = new StringBuilder();
             try {
                 try ( Connection con = getConnection();  Statement stmt = con.createStatement()) {
@@ -92,7 +92,7 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
                 return res;
             } catch (SQLException e) {
                 LOGGER.log(Level.SEVERE, "Erro no alterar:{0}", e.toString());
-            }            
+            }
         }
         return res;
     }
@@ -102,7 +102,7 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
         int res = 0;
         if (obj != null) {
             Cliente cliente = (Cliente) obj;
-            StringBuilder sql = new StringBuilder();            
+            StringBuilder sql = new StringBuilder();
             try {
                 try ( Connection con = getConnection();  Statement stmt = con.createStatement()) {
                     sql.append("delete from " + TABLE + WHERE + TABLE + ".").append(PK[0]).append(" = '").append(preparaSQL(cliente.getClienteId())).append("'");
@@ -111,7 +111,7 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
                 return res;
             } catch (SQLException e) {
                 LOGGER.log(Level.SEVERE, "Erro no excluir:{0}", e.toString());
-            }       
+            }
         }
         return res;
     }
@@ -155,8 +155,8 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
         }
     }
 
-     /**
-     * Cria o database e a tabela.
+    /**
+     * Sequência de criação do database e tabela.
      */
     private void criar() {
         criarBancoDeDados();
@@ -164,12 +164,12 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
     }
 
     /**
-     * Cria o database.
+     * Cria o esquema(database) no banco de dados.
      */
     private void criarBancoDeDados() {
         try {
             try (
-                Connection con = getConnectionDB();  Statement stmt = con.createStatement()) {
+                     Connection con = getConnectionDB();  Statement stmt = con.createStatement()) {
                 //Cria a tabela senão existir
                 int retorno = stmt.executeUpdate("create database if not exists " + DadosBanco.DATABASE + ";");
                 //System.out.println("Database criado:" + retorno);
@@ -185,11 +185,11 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
     private void criarTabelas() {
         try {
             try (
-                Connection con = getConnection();  Statement stmt = con.createStatement()) {
+                     Connection con = getConnection();  Statement stmt = con.createStatement()) {
                 //Cria a tabela senão existir
                 int retorno = stmt.executeUpdate("create table if not exists cliente (clienteid integer, nome varchar(100), cpf varchar(11), constraint pk_cliente primary key (clienteid));");
                 //System.out.println("Tabela criada:" + retorno);
-                
+
             }
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Erro no criar:{0}", e.toString());
