@@ -11,7 +11,7 @@ Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 
  - Utiliza o **Docker** para criar e executar os containers da aplicação e do banco de dados.
  - Utiliza o **Docker Compose** para definir e gerenciar os serviços da aplicação. 
  - Utiliza o **MySQL 8.4** como banco de dados da aplicação. 
- - O projeto é um **CRUD** para os dados de cliente(clienteId, nome, cpf).
+ - O projeto é um **CRUD** para os dados de cliente (clienteId, nome, cpf).
  - As classes do projeto está organizado nos **pacotes** visão, controle, modelo, dao além de um pacote util.
  - Utiliza o padrão **abstract factory** para abstrair 3 formas de armazenamento:
 	- 1 - Banco de Dados(MySQL)
@@ -29,7 +29,7 @@ Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 
 
 ### Cria a tabela de tb_alunos
 
-- Se precisar abaixo está o script para a criação do banco de dados e da tabela. O script completo está no arquivo [banco.sql](banco.sql).
+- Abaixo o script SQl se precisar criar o banco de dados e a tabela[banco.sql](banco.sql).
 
 ```
 # Criar o database chamado db_cliente
@@ -53,16 +53,16 @@ create table cliente (clienteid integer,
  - Utilizar o terminal do Windows Powershel em modo administrador.
 
 ### Para criar os conteiner e os serviços
- - docker compose up --build
+ - ```docker compose up --build```
 
 ### Parar os serviços
- - docker compose down -v
+ - ```docker compose down -v```
 
 ### Abra o navegador em:
  - http://localhost:8080/
 
 ### Remover as imagens
- - docker compose down --rmi all
+ - ```docker compose down --rmi all```
 
 ## Arquivos
 
