@@ -71,6 +71,6 @@ create table cliente (clienteid integer,
 - Dockerfile - Arquivo de configuração do Docker.
 - compose.yml - Arquivo de configuração da composição do Docker.
 
-## Arquitetura Sistema
+## Arquitetura do Sistema
 
 ![Arquitetura](arquitetura.png)
