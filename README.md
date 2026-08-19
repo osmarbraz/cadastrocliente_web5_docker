@@ -74,3 +74,6 @@ create table cliente (clienteid integer,
 ## Arquitetura do Sistema
 
 ![Arquitetura](arquitetura.png)
+
+## Docker Hub
+ - https://hub.docker.com/r/osmarbraz/cadastrocliente_web5_docker
