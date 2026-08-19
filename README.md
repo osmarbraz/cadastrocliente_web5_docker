@@ -25,7 +25,7 @@ Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 
 
 ## Banco de dados
 
-- O banco de dados é criado no primeiro acesso ao banco de dados MySQL.
+- O banco de dados e a tabela são criados no primeiro acesso ao banco de dados MySQL.
 
 ### Cria a tabela de tb_alunos
 
