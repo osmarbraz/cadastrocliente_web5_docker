@@ -11,7 +11,7 @@ Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 
  - Utiliza o **Docker** para criar e executar os containers da aplicação e do banco de dados.
  - Utiliza o **Docker Compose** para definir e gerenciar os serviços da aplicação. 
  - Utiliza o **MySQL 8.4** como banco de dados da aplicação. 
- - O projeto é um CRUD para os dados de cliente(clienteId, Nome, CPF).
+ - O projeto é um CRUD para os dados de cliente(clienteId, nome, cpf).
  - As classes do projeto está organizado nos pacotes visão, controle, modelo, dao além de um pacote util.
  - Utiliza o padrão abstract factory para abstrair 3 formas de armazenamento:
 	- 1 - Banco de Dados(MySQL)
@@ -23,8 +23,34 @@ Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 
  - Os dados de configuração (Servidor, Database, Usuario, Senha) da integração do java com o banco de dados estão no arquivo src/dao/DadosBanco.java.<br>
  - A especificação da fábrica a ser utilizada é feita na interface Factory.java. 
 
+## Banco de dados
+
+- O banco de dados é criado no primeiro acesso ao banco de dados MySQL.
+
+### Cria a tabela de tb_alunos
+
+- Se precisar abaixo está o script para a criação do banco de dados e da tabela. O script completo está no arquivo [banco.sql](banco.sql).
+
+```
+# Criar o database chamado db_cliente
+create database if not exists db_cliente;
+
+# Entrar no database db_cliente
+use db_cliente;
+
+# Remover a tabela para recriá-la
+drop table if exists cliente;
+
+# Criar a tabela de tb_alunos
+create table cliente (clienteid integer, 
+                      nome      varchar(100), 
+                      cpf       varchar(11), 
+                      constraint pk_cliente primary key (clienteid));
+
+```
+
 ## Docker
- - Utilizer o terminal do Powershel em modo administrador.
+ - Utilizar o terminal do Windows Powershel em modo administrador.
 
 ### Para criar os conteiner e os serviços
  - docker compose up --build
@@ -37,3 +63,10 @@ Sistema de Cadastro de Cliente WEB com Docker Compose e Banco de Dados MySQL em 
 
 ### Remover as imagens
  - docker compose down --rmi all
+
+## Arquivos
+
+- banco.sql - Script do banco de dados.
+- pom.xml - Arquivo de configuração da ferramenta de automação Maven.
+- Dockerfile - Arquivo de configuração do Docker.
+- compose.yml - Arquivo de configuração da composição do Docker.

@@ -40,9 +40,9 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
             try ( Connection con = getConnection();  Statement stmt = con.createStatement();  ResultSet rs = stmt.executeQuery(sql)) {
                 while (rs.next()) {
                     Cliente cliente = new Cliente();
-                    cliente.setClienteId(rs.getString("CLIENTEID"));
-                    cliente.setNome(rs.getString("NOME"));
-                    cliente.setCpf(rs.getString("CPF"));
+                    cliente.setClienteId(rs.getString("clienteid"));
+                    cliente.setNome(rs.getString("nome"));
+                    cliente.setCpf(rs.getString("cpf"));
                     lista.add(cliente);
                 }
             }
@@ -84,8 +84,8 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
             try {
                 try ( Connection con = getConnection();  Statement stmt = con.createStatement()) {
                     sql.append("update " + TABLE);
-                    sql.append(" set NOME='").append(cliente.getNome()).append("',");
-                    sql.append(" CPF='").append(cliente.getCpf()).append("'");
+                    sql.append(" set nome='").append(cliente.getNome()).append("',");
+                    sql.append(" cpf='").append(cliente.getCpf()).append("'");
                     sql.append(WHERE + TABLE + ".").append(PK[0]).append("='").append(preparaSQL(cliente.getClienteId())).append("'");
                     res = stmt.executeUpdate(sql.toString());
                 }
@@ -136,11 +136,11 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
             }
 
             if (!"".equals(cliente.getNome())) {
-                filtros.add(TABLE + ".NOME like upper('%" + preparaSQL(cliente.getNome()) + "%')");
+                filtros.add(TABLE + ".nome like upper('%" + preparaSQL(cliente.getNome()) + "%')");
             }
 
             if (!"".equals(cliente.getCpf())) {
-                filtros.add(TABLE + ".CPF = '" + preparaSQL(cliente.getCpf()) + "'");
+                filtros.add(TABLE + ".cpf = '" + preparaSQL(cliente.getCpf()) + "'");
             }
 
             if (!filtros.isEmpty()) {
@@ -171,7 +171,8 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
             try (
                 Connection con = getConnectionDB();  Statement stmt = con.createStatement()) {
                 //Cria a tabela senão existir
-                stmt.executeUpdate("create database IF NOT EXISTS " + DadosBanco.DATABASE + ";");
+                int retorno = stmt.executeUpdate("create database if not exists " + DadosBanco.DATABASE + ";");
+                //System.out.println("Database criado:" + retorno);
             }
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Erro no criar:{0}", e.toString());
@@ -186,7 +187,9 @@ public class MYSQLClienteDAO extends MYSQLDAOFactory implements ClienteDAO {
             try (
                 Connection con = getConnection();  Statement stmt = con.createStatement()) {
                 //Cria a tabela senão existir
-                stmt.executeUpdate("create table IF NOT EXISTS CLIENTE (CLIENTEID integer, NOME varchar(100), CPF varchar(11), CONSTRAINT PK_Cliente PRIMARY KEY (CLIENTEID));");
+                int retorno = stmt.executeUpdate("create table if not exists cliente (clienteid integer, nome varchar(100), cpf varchar(11), constraint pk_cliente primary key (clienteid));");
+                //System.out.println("Tabela criada:" + retorno);
+                
             }
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Erro no criar:{0}", e.toString());

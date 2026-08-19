@@ -69,7 +69,7 @@ services:
   # Define o serviço que será responsável por executar
   # o phpMyAdmin, uma interface Web utilizada para administrar
   # bancos de dados MySQL.
-  # phpmyadmin:
+  #phpmyadmin:
 
     # Define uma dependência entre os serviços.
     #
@@ -137,7 +137,7 @@ services:
       # Essa senha deve ser igual à senha definida no serviço
       # MySQL através da variável MYSQL_ROOT_PASSWORD.
       #MYSQL_ROOT_PASSWORD: root
-
+      
   # ============================================================
   # SERVIÇO DA APLICAÇÃO JAVA
   # ============================================================

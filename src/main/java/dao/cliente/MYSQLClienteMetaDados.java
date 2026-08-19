@@ -17,23 +17,23 @@ public final class MYSQLClienteMetaDados {
     /**
      * string com o nome da tabela usada no banco
      */
-    public static final String TABLE = "CLIENTE";
+    public static final String TABLE = "cliente";
 
     /**
      * vetor de string com as chaves da tabela
      */
-    protected static final String[] PK = {"CLIENTEID"};
+    protected static final String[] PK = {"clienteid"};
 
     /**
      * string com os campos para serem utilizados com insert
      */
-    public static final String METADADOSINSERT = "CLIENTEID, NOME, CPF ";
+    public static final String METADADOSINSERT = "clienteid, nome, cpf ";
 
     /**
      * Retorna uma string com os campos para serem utilizados com select
      */
     public static final String METADADOSSELECT
-            = TABLE + ".CLIENTEID, "
-            + TABLE + ".NOME, "
-            + TABLE + ".CPF";
+            = TABLE + ".clienteid, "
+            + TABLE + ".nome, "
+            + TABLE + ".cpf";
 }
