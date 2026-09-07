@@ -11,7 +11,9 @@ import util.Valida;
 import util.RequestCliente;
 import entidade.Cliente;
 import java.util.logging.Level;
+import javax.servlet.annotation.WebServlet;
 
+@WebServlet(name = "ClienteAlterar", urlPatterns = {"/servlet/ClienteAlterar"})
 public class ClienteAlterar extends HttpServlet {
 
     private static final Logger LOGGER = Logger.getLogger(ClienteAlterar.class.getName());

@@ -10,7 +10,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import entidade.Cliente;
+import javax.servlet.annotation.WebServlet;
 
+@WebServlet(name = "ClienteConsultar", urlPatterns = {"/servlet/ClienteConsultar"})
 public class ClienteConsultar extends HttpServlet {
 
     private static final Logger LOGGER = Logger.getLogger(ClienteConsultar.class.getName());

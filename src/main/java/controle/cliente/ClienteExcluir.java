@@ -11,7 +11,9 @@ import org.owasp.encoder.Encode;
 import entidade.Cliente;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.annotation.WebServlet;
 
+@WebServlet(name = "ClienteExcluir", urlPatterns = {"/servlet/ClienteExcluir"})
 public class ClienteExcluir extends HttpServlet {
 
     private static final Logger LOGGER = Logger.getLogger(ClienteExcluir.class.getName());
